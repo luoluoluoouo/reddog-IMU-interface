@@ -52,14 +52,6 @@ target_include_directories(main_exec PUBLIC
   $<BUILD_INTERFACE:${CMAKE_BINARY_DIR}/nav_msgs/rosidl_generator_cpp>
 )
 
-add_executable(stand_go2 src/dds.cpp)
-target_link_libraries(stand_go2  
-  unitree_sdk2
-)
-ament_target_dependencies(stand_go2 
-  rclcpp
-)
-
 if(BUILD_TESTING)
   find_package(ament_lint_auto REQUIRED)
   set(ament_cmake_copyright_FOUND TRUE)
@@ -68,10 +60,6 @@ if(BUILD_TESTING)
 endif()
 
 install(TARGETS main_exec
-  DESTINATION lib/${PROJECT_NAME}
-)
-
-install(TARGETS stand_go2
   DESTINATION lib/${PROJECT_NAME}
 )
 
